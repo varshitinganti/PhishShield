@@ -1,0 +1,15 @@
+
+{
+  "manifest_version": 3,
+  "name": "PhishShield",
+  "version": "1.0.0",
+  "description": "An explainable, multi-signal phishing URL risk analyzer.",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "action": {
+    "default_title": "Scan with PhishShield",
+    "default_popup": "popup/popup.html"
+  }
+}

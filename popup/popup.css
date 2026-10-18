@@ -1,0 +1,224 @@
+
+:root {
+  color-scheme: dark;
+  --bg: #090e17;
+  --panel: #111a28;
+  --border: #263449;
+  --text: #edf4ff;
+  --muted: #91a2ba;
+  --cyan: #63e3f5;
+  --green: #53e0a0;
+  --amber: #ffc76b;
+  --red: #ff7185;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  width: 390px;
+  min-height: 500px;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.5 "Segoe UI", system-ui, sans-serif;
+}
+
+button, input { font: inherit; }
+button { cursor: pointer; }
+
+.app { padding: 20px; }
+
+.topbar, .brand, .result-heading, .section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand { justify-content: flex-start; gap: 11px; }
+
+.brand-icon {
+  width: 39px;
+  height: 39px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #63e3f5, #3985f6);
+  color: #07111c;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+h1, h2, h3, p { margin: 0; }
+h1 { font-size: 17px; }
+
+.subtitle, .eyebrow, .section-label {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  font-weight: 750;
+}
+
+.version {
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 7px;
+  font-size: 10px;
+}
+
+.intro { padding: 27px 0 20px; }
+.intro h2 {
+  font-size: 29px;
+  line-height: 1.15;
+  margin: 13px 0 9px;
+  letter-spacing: -1px;
+}
+.intro > p:last-child {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.scan-card, .result, .history-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--panel);
+  padding: 15px;
+}
+
+.scan-card label, .section-label {
+  display: block;
+  margin-bottom: 9px;
+}
+
+input {
+  width: 100%;
+  height: 41px;
+  padding: 0 11px;
+  background: #090f19;
+  border: 1px solid #30415a;
+  border-radius: 9px;
+  outline: none;
+  color: var(--text);
+  font-size: 12px;
+}
+
+input:focus { border-color: var(--cyan); }
+input::placeholder { color: #65758b; }
+
+#scanBtn {
+  width: 100%;
+  margin-top: 10px;
+  border: 0;
+  border-radius: 9px;
+  height: 42px;
+  background: var(--cyan);
+  color: #07131d;
+  font-weight: 800;
+}
+#scanBtn:hover { filter: brightness(1.08); }
+
+#status, .hint {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 9px;
+  min-height: 15px;
+}
+
+.result, .history-card { margin-top: 13px; }
+.hidden { display: none; }
+
+.score-ring {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2px;
+  padding-top: 16px;
+  border: 3px solid var(--green);
+  border-radius: 50%;
+  color: var(--green);
+}
+.score-ring span { font-size: 22px; font-weight: 850; }
+.score-ring small { font-size: 9px; }
+
+.meter {
+  height: 5px;
+  margin: 14px 0 10px;
+  overflow: hidden;
+  background: #273448;
+  border-radius: 10px;
+}
+#scoreBar {
+  height: 100%;
+  width: 0;
+  background: var(--green);
+  transition: width .25s;
+}
+
+.result-url {
+  overflow-wrap: anywhere;
+  color: var(--muted);
+  font-size: 11px;
+  margin-bottom: 16px;
+}
+
+#signals {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 7px;
+}
+#signals li {
+  display: flex;
+  gap: 8px;
+  padding: 9px;
+  border-radius: 8px;
+  background: #172335;
+  color: #cbd8e9;
+  font-size: 11px;
+}
+.signal-mark { font-weight: 900; color: var(--amber); }
+.signal-good .signal-mark { color: var(--green); }
+
+.disclaimer {
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+  margin-top: 13px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.text-button {
+  color: var(--cyan);
+  border: 0;
+  background: transparent;
+  font-size: 11px;
+}
+
+#historyList { display: grid; gap: 7px; margin-top: 12px; }
+.history-item {
+  padding: 10px;
+  border-radius: 8px;
+  background: #172335;
+  overflow-wrap: anywhere;
+}
+.history-item strong { display: block; font-size: 11px; }
+.history-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 10px;
+}
+.empty-state { color: var(--muted); font-size: 11px; }
+
+footer {
+  text-align: center;
+  padding-top: 18px;
+  color: var(--muted);
+  font-size: 10px;
+}

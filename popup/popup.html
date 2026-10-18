@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhishShield</title>
+  <link rel="stylesheet" href="popup.css">
+  <script src="../scripts/url-analyzer.js" defer></script>
+<script src="../scripts/risk-engine.js" defer></script>
+<script src="../scripts/storage.js" defer></script>
+<script src="popup.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon">P</div>
+        <div>
+          <h1>PhishShield</h1>
+          <p class="subtitle">WEB THREAT INTELLIGENCE</p>
+        </div>
+      </div>
+      <span class="version">v1.0.0</span>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow">● LOCAL ANALYSIS ENGINE</p>
+      <h2>Inspect before<br>you trust.</h2>
+      <p>Analyze suspicious URL patterns before interacting with a website.</p>
+    </section>
+
+    <section class="scan-card">
+      <label for="urlInput">TARGET URL</label>
+      <input id="urlInput" type="text"
+        placeholder="https://example.com"
+        autocomplete="off" spellcheck="false">
+      <button id="scanBtn" type="button">Analyze URL →</button>
+      <p id="status" role="status">Ready to analyze</p>
+    </section>
+
+    <section id="result" class="result hidden">
+      <div class="result-heading">
+        <div>
+          <p class="eyebrow">ANALYSIS REPORT</p>
+          <h3 id="verdict">Awaiting scan</h3>
+        </div>
+        <div class="score-ring" id="scoreRing">
+          <span id="score">0</span><small>/100</small>
+        </div>
+      </div>
+      <div class="meter"><div id="scoreBar"></div></div>
+      <p id="resultUrl" class="result-url"></p>
+      <p class="section-label">DETECTION SIGNALS</p>
+      <ul id="signals"></ul>
+      <p class="disclaimer">
+        Heuristic assessment only. No score guarantees a site's safety.
+      </p>
+    </section>
+
+    <section class="history-card">
+      <div class="section-heading">
+        <h3>Recent scans</h3>
+        <button id="clearHistory" class="text-button" type="button">Clear</button>
+      </div>
+      <div id="historyList">
+        <p class="empty-state">Your scans will appear here.</p>
+      </div>
+    </section>
+
+    <footer>● Privacy-first · Processed locally</footer>
+  </main>
+</body>
+</html>
